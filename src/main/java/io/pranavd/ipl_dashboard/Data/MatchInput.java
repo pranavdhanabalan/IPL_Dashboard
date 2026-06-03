@@ -1,4 +1,4 @@
-package io.pranavd.ipl_dashboard;
+package io.pranavd.ipl_dashboard.Data;
 
 public class MatchInput {
     private String id;
