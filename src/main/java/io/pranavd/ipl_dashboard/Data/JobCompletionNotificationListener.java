@@ -2,16 +2,17 @@ package io.pranavd.ipl_dashboard.Data;
 
 import io.pranavd.ipl_dashboard.Model.Team;
 import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.batch.core.BatchStatus;
-import org.springframework.batch.core.job.JobExecution;
-import org.springframework.batch.core.listener.JobExecutionListener;
+import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.JobExecutionListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,7 +48,9 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
 
                     .forEach(e->{
                                 Team team=teamData.get((String) e[0]);
-                                team.setTotalMatches(team.getTotalMatches()+(long) e[1]);
+                                if (team != null) {
+                                    team.setTotalMatches(team.getTotalMatches()+(long) e[1]);
+                                }
                             });
             entityManager.createQuery("select m.matchWinner,count(*) from Match m group by m.matchWinner",Object[].class)
                     .getResultList()
@@ -59,6 +62,8 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
                             team.setTotalWins((long) e[1]);
                     });
             teamData.values().forEach(team->entityManager.persist(team));
+            System.out.println("Persisting: " + teamData.size());
+            teamData.values().forEach(team-> System.out.println(team));
         }
     }
 }

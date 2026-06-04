@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String teamName;
     private long totalMatches;
@@ -52,5 +52,13 @@ public class Team {
     public Team(String teamName, long totalMatches) {
         this.teamName = teamName;
         this.totalMatches = totalMatches;
+    }
+    @Override
+    public String toString() {
+        return "Team{" +
+                "teamName='" + teamName + '\'' +
+                ", totalMatches=" + totalMatches +
+                ", totalWins=" + totalWins +
+                '}';
     }
 }
