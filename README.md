@@ -38,19 +38,7 @@ This project was built using Spring Boot for the backend and React for the front
 
 ## Project Architecture
 
-Frontend (React)
-      |
-      v
-REST API Calls
-      |
-      v
-Backend (Spring Boot)
-      |
-      v
-Spring Data JPA
-      |
-      v
-PostgreSQL Database
+Frontend (React)->REST API Calls->Backend (Spring Boot)->Spring Data JPA->PostgreSQL Database
 
 ## Dataset
 
