@@ -15,7 +15,7 @@ export const TeamPage=()=> {
               setTeam(data);
             };
             fetchMatches();
-        },[]);
+        },[teamName]);
     if (!team) {
         return <h1>Loading...</h1>;
     }
@@ -24,7 +24,13 @@ export const TeamPage=()=> {
         <div className="TeamPage">
             <h1>{team.teamName}</h1>
             <MatchDetailCard teamName={team.teamName} match={team.matches[0]}/>
-            {team.matches.slice(1).map(match=><MatchSmallCard match={match} />)}
+            {team.matches.slice(1).map(match => (
+                <MatchSmallCard
+                    key={match.id}
+                    match={match}
+                    teamName={team.teamName}
+                />
+            ))}
         </div>
     );
 }
