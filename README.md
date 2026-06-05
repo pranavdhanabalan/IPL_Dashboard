@@ -52,40 +52,6 @@ Spring Data JPA
       v
 PostgreSQL Database
 
-## Installation
-
-### Clone Repository
-
-git clone <your-repository-url>
-
-### Backend Setup
-
-cd backend
-
-Configure PostgreSQL database credentials in:
-
-application.properties
-
-Run:
-
-mvn spring-boot:run
-
-### Frontend Setup
-
-cd frontend
-
-Install dependencies:
-
-npm install
-
-Start React application:
-
-npm start
-
-Application will run at:
-
-http://localhost:3000
-
 ## Dataset
 
 The IPL dataset contains historical IPL match information including teams, venues, results, players, and season data. Data is processed and imported into PostgreSQL using Spring Batch.
