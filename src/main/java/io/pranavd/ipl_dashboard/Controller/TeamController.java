@@ -4,14 +4,15 @@ import io.pranavd.ipl_dashboard.Model.Match;
 import io.pranavd.ipl_dashboard.Model.Team;
 import io.pranavd.ipl_dashboard.Repository.MatchRepository;
 import io.pranavd.ipl_dashboard.Repository.TeamRepository;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -31,6 +32,20 @@ public class TeamController {
         Pageable pageable =PageRequest.of(0, 4);
         team.setMatches( matchRepository.getByTeam1OrTeam2OrderByDateDesc(teamName,teamName,pageable));
         return team;
+    }
+
+    @GetMapping("/team/{teamName}/matches")
+    public List<Match> getMatchesForTeam(@PathVariable String teamName,@RequestParam int year){
+        LocalDate startDate=LocalDate.of(year,1,1);
+        LocalDate endDate=LocalDate.of(year+1,1,1);
+        return this.matchRepository.getByTeam1AndDateBetweenOrTeam2AndDateBetweenOrderByDateDesc(
+                teamName,
+                startDate,
+                endDate,
+                teamName,
+                startDate,
+                endDate
+        );
     }
 
 }
