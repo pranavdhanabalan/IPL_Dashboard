@@ -7,17 +7,17 @@ import { PieChart } from 'react-minimal-pie-chart';
 import './TeamPage.scss';
 
 export const TeamPage=()=> {
-    const [team,setTeam]=useState({matches: []});
+    const [team,setTeam]=useState(null);
     const {teamName}=useParams();
     useEffect(
         ()=>{
-            const fetchMatches=async ()=>{
+            const fetchTeam=async ()=>{
               const response=await fetch(`http://localhost:8080/team/${teamName}`);
               const data=await response.json();
               console.log(data);
               setTeam(data);
             };
-            fetchMatches();
+            fetchTeam();
         },[teamName]);
     if (!team) {
         return <h1>Loading...</h1>;
