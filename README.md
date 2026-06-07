@@ -4,6 +4,10 @@ A full-stack web application that allows users to explore IPL teams, view match 
 
 This project was built using Spring Boot for the backend and React for the frontend. Match data is stored and queried from a PostgreSQL database, providing fast access to team statistics and historical IPL records.
 
+<img width="2342" height="1682" alt="image" src="https://github.com/user-attachments/assets/ba0bbd7d-5dbf-4628-b577-6dbbd3d94cd4" />
+
+<img width="2234" height="1680" alt="image" src="https://github.com/user-attachments/assets/f8119e6e-2217-4097-bb7e-f3ab75469cb7" />
+
 ## Features
 
 * View all IPL teams
