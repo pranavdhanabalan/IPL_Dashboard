@@ -4,6 +4,7 @@ import {MatchDetailCard} from "../components/MatchDetailCard";
 import {MatchSmallCard} from "../components/MatchSmallCard";
 import {TeamPage} from "./TeamPage";
 import './MatchPage.scss';
+import {YearSelector} from "../components/YearSelector";
 
 export const MatchPage=()=> {
     const [matches,setMatches]=useState([]);
@@ -20,8 +21,8 @@ export const MatchPage=()=> {
         },[]);
     return (
         <div className="MatchPage">
-            <div className="left-column">
-                {/* Left side content */}
+            <div className="year-selector">
+                <YearSelector/>
             </div>
 
             <div className="right-column">
