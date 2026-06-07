@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {MatchDetailCard} from "../components/MatchDetailCard";
 import {MatchSmallCard} from "../components/MatchSmallCard";
 import {TeamPage} from "./TeamPage";
+import './MatchPage.scss';
 
 export const MatchPage=()=> {
     const [matches,setMatches]=useState([]);
@@ -19,12 +20,19 @@ export const MatchPage=()=> {
         },[]);
     return (
         <div className="MatchPage">
-            {matches.map(match => (
-                <MatchDetailCard
-                    match={match}
-                    teamName={teamName}
-                />
-            ))}
+            <div className="left-column">
+                {/* Left side content */}
+            </div>
+
+            <div className="right-column">
+                {matches.map(match => (
+                    <MatchDetailCard
+                        key={match.id}
+                        match={match}
+                        teamName={teamName}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

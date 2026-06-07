@@ -1,0 +1,7 @@
+.MatchPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .right-column{
+    grid-column: 2;
+  }
+}
