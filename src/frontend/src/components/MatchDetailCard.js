@@ -15,8 +15,8 @@ export const MatchDetailCard=({match,teamName})=> {
     return (
         <div className={isMatchWon ? 'MatchDetailCard won-card':'MatchDetailCard lost-card'}>
             <div>
-                <h1>vs
-                    <Link to={otherTeamRoute}>{otherTeam}</Link></h1>
+                <h2>vs</h2>
+                <h1><Link to={otherTeamRoute}>{otherTeam}</Link></h1>
                 <h2 className="match-Date"> {match.date}</h2>
                 <h3 className="match-Venue">at {match.venue}</h3>
                 <h3 className="match-Result">{match.matchWinner} won by {match.resultMargin} {match.result}</h3>
