@@ -8,6 +8,8 @@ This project was built using Spring Boot for the backend and React for the front
 
 <img width="2234" height="1680" alt="image" src="https://github.com/user-attachments/assets/f8119e6e-2217-4097-bb7e-f3ab75469cb7" />
 
+<img width="2288" height="1684" alt="image" src="https://github.com/user-attachments/assets/df4acbf8-32bc-45b7-9ef8-e0dd4d65bafd" />
+
 ## Features
 
 * View all IPL teams
